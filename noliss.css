@@ -1,0 +1,48 @@
+.reset_style{
+  display:initial;
+  position:initial;
+}
+
+.btnori{
+  float:right;
+  height:30px;
+  width:30px;
+  box-sizing: border-box;
+  background-image: url("http://flat-icon-design.com/f/f_health_37/s256_f_health_37_0bg.png");
+  background-size:100%;
+  margin-top: 12px ;
+
+
+}
+
+
+.newstyledb{
+  left:initial;
+  right:0;
+  top:50px;
+}
+
+
+body{
+  background-image: url("https://s-media-cache-ak0.pinimg.com/originals/16/67/93/16679360db85ffe72f3a489fdc3cc693.jpg");
+  background-size: 100%;
+}
+
+.teamtag {
+  background-color:#149A3F;
+  font-size: 30px;
+  color:white;
+  border-radius:4px;
+  border:solid 2px #ccc;
+  padding: 3px 3px;
+  display: block;
+  text-align: center
+}
+
+.timeline-label{
+  border:solid 2px #ccc;
+}
+
+.timeline-label:after{
+  border:solid 2px #ccc;
+}
