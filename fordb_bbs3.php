@@ -1,3 +1,34 @@
+
+<!-- 送信 -->
+<?php
+  // // フォームからPOST送信で受け取った情報をサニタイズし変数へ代入
+  $nickname = htmlspecialchars($_POST['nickname']);
+  $comment = htmlspecialchars($_POST['comment']);
+
+  // １．データベースに接続する
+  $dsn = 'mysql:dbname=oneline_bbs;host=localhost';//コロンは「使いますよ」の意味,ローカルホストは自分のサーバーという意味別の場合はIP
+  $user = 'root';
+  $password='';
+  $dbh = new PDO($dsn, $user, $password);
+  $dbh->query('SET NAMES utf8');
+          //dbに何を入れるか？送信情報＋送信識別子＋カラム数
+
+
+  // ２．SQL文を実行する
+  $sql = "INSERT INTO `posts3` ( `nickname`, `comment`) VALUES ( ?, ?);";
+    //紫色になっているとエラー 全体をダブルクォートで囲えば解決。変数をぶち込む
+    //SQLインジェクション（不正操作）を防ぐ
+
+
+  //プリペアードステートメント
+  $data=array($nickname,$comment);
+  $stmt = $dbh->prepare($sql);
+  $stmt->execute($data);//$dataを接続してEXECUTE（完成させて実行）
+
+  // ３．データベースを切断する
+  $dbh = null;
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -76,10 +107,10 @@
       <!-- 画面左側 -->
       <div class="col-md-4 content-margin-top">
         <!-- form部分 -->
-        <!-- Nori --><a class="teamtag"><b>会社のページ</b></a>
+        <!-- Nori --><a class="teamtag"><b>サークルのページ</b></a>
         <br>
 
-        <form action="fordb_bbs.php" method="POST">
+        <form action="fordb_bbs3.php" method="post">
           <!-- nickname -->
           <div class="form-group">
             <div class="input-group">
@@ -109,8 +140,8 @@
                 <i class="fas fa-utensils"></i>
               </div>
               <div class="timeline-label">
-                <h2><a href="#">のり@平社員</a> <span>2018-03-17</span></h2>
-                <p>Jollibeeいきませんか</p>
+                <h2><a href="#">のり@サークルの姫</a> <span>2018-03-17 00:00:00</span></h2>
+                <p>サークルまで暇です〜</p>
               </div>
 
               <?php
@@ -123,7 +154,7 @@
                               $dbh->query('SET NAMES utf8');
 
                 // ２．SQL文を実行する
-                $sql = 'SELECT * FROM `posts`';//これだけで取れる
+                $sql = 'SELECT * FROM `posts3`';//これだけで取れる
                 $stmt = $dbh->prepare($sql);
                 $stmt->execute();
 
@@ -188,4 +219,5 @@
   <script src="assets/js/form.js"></script>
 </body>
 </html>
+
 

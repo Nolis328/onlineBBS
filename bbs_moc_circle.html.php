@@ -1,3 +1,7 @@
+
+
+
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -12,6 +16,7 @@
   <link rel="stylesheet" href="assets/css/main.css">
   <!-- NoriCSS -->
   <link rel="stylesheet" href="./noliss.css">
+
 </head>
 <body>
 
@@ -41,12 +46,12 @@
                       <div class="dropdown">
                         <button class="btn btnori btn-default dropdown-toggle reset_style" type="button" data-toggle="dropdown">
                           <!-- <img class="humimg" src="http://flat-icon-design.com/f/f_health_37/s256_f_health_37_0bg.png" alt="#"> -->
-                          <!--  <span class="caret"></span> -->
+            <!-- <span class="caret"></span> -->
                           </button>
                         <ul class="dropdown-menu newstyledb" role="menu">
-                          <li role="presentation"><a href="./bbs_moc.html">会社</a></li>
-                          <li role="presentation"><a href="./bbs_moc_school.html">学校</a></li>
-                          <li role="presentation"><a href="./bbs_moc_circle.html">サークル</a></li> 
+                          <li role="presentation"><a href="./bbs_moc.html.php">会社</a></li>
+                          <li role="presentation"><a href="./bbs_moc_school.html.php">学校</a></li>
+                          <li role="presentation"><a href="./bbs_moc_circle.html.php">サークル</a></li>
                         </ul>
                       </div>
 
@@ -75,8 +80,10 @@
       <!-- 画面左側 -->
       <div class="col-md-4 content-margin-top">
         <!-- form部分 -->
-         <!-- Nori --><span class="teamtag"><b>サークルのページ</b></span><br>
-        <form action="bbs.php" method="post">
+        <!-- Nori --><a class="teamtag"><b>サークルのページ</b></a>
+        <br>
+
+        <form action="fordb_bbs3.php" method="post">
           <!-- nickname -->
           <div class="form-group">
             <div class="input-group">
@@ -100,30 +107,83 @@
       <div class="col-md-8 content-margin-top">
         <div class="timeline-centered">
           <article class="timeline-entry">
-              <div class="timeline-entry-inner">
-                  <div class="timeline-icon bg-success">
-                      <i class="entypo-feather"></i>
-                      <i class="fas fa-utensils"></i>
-                  </div>
+            <div class="timeline-entry-inner">
+              <div class="timeline-icon bg-success">
+                <i class="entypo-feather"></i>
+                <i class="fas fa-utensils"></i>
+              </div>
+              <div class="timeline-label">
+                <h2><a href="#">のり@サークルの姫</a> <span>2018-03-17 00:00:00</span></h2>
+                <p>サークルまで暇です〜</p>
+              </div>
+
+              <?php
+                // １．データベースに接続する
+                  //fetchの動きに注目.上から順にとり、次の項目を取る準備をしてくれる
+                              $dsn = 'mysql:dbname=oneline_bbs;host=localhost';
+                              $user = 'root';
+                              $password = '';
+                              $dbh = new PDO($dsn, $user, $password);
+                              $dbh->query('SET NAMES utf8');
+
+                // ２．SQL文を実行する
+                $sql = 'SELECT * FROM `posts3`';//これだけで取れる
+                $stmt = $dbh->prepare($sql);
+                $stmt->execute();
+
+                  //データを取得=fetchを実行
+                  $survey_line=array();//array初期化
+                  while(1){
+                    $rec=$stmt->fetch(PDO::FETCH_ASSOC);
+                    //取得できるデータが何もなくなるまで繰り返す
+                    if($rec==false){
+                      break;
+                    }
+                    $survey_line[]=$rec;//これとpreタグの操作を繰り返すことで全ての値が取得できる（繰り返し）
+                  }
+                        // $rec=$stmt->fetch(PDO::FETCH_ASSOC);
+                        // $survey_line[]=$rec;
+
+
+                // ３．データベースを切断する
+                  $dbh = null;
+                  //arrayをする意味は配列に一度保存してから切断し、あとから取り出すことができ、美しく効率的。
+                  //資料のものよりデータ処理の手数が短く切ることができるということ。
+                  ?>
+
+
+                  <?php
+                // var_dump($survey_line);
+                  foreach($survey_line as $oneline_bbs){
+                    ?>
                   <div class="timeline-label">
-                      <h2><a href="#">のり@サークルの姫</a> <span>2018-03-17</span></h2>
-                      <p>サークルまで暇です〜</p>
+                  <h2><a href="#"><?php echo $oneline_bbs["nickname"] ?></a> <span><?php echo $oneline_bbs["created"] ?></span></h2>
+                  <p><?php echo $oneline_bbs["comment"] ?></p>
                   </div>
-              </div>
-          </article>
+                  <?php
+                  }?>
 
-          <article class="timeline-entry begin">
-              <div class="timeline-entry-inner">
-                  <div class="timeline-icon" style="-webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg);">
-                      <i class="entypo-flight"></i>
-                  </div>
-              </div>
-          </article>
-        </div>
-      </div>
 
+</div>
+</article>
+
+<article class="timeline-entry begin">
+  <div class="timeline-entry-inner">
+    <div class="timeline-icon" style="-webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg);">
+      <i class="entypo-flight"></i>+
     </div>
   </div>
+</article>
+</div>
+</div>
+
+</div>
+</div>
+
+
+
+
+
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -132,3 +192,4 @@
   <script src="assets/js/form.js"></script>
 </body>
 </html>
+
