@@ -143,7 +143,7 @@
                 <i class="fas fa-utensils"></i>
               </div>
               <div class="timeline-label">
-                <h2><a href="#">のり@平社員</a> <span>2018-03-17</span></h2>
+                <h2><a href="#">のり@平社員</a> <span>2018-03-17 00:00:00</span></h2>
                 <p>Jollibeeいきませんか</p>
               </div>
 
@@ -187,7 +187,8 @@
                   foreach($survey_line as $oneline_bbs){
                     ?>
                   <div class="timeline-label">
-                  <h2><a href="#"><?php echo $oneline_bbs["nickname"] ?></a> <span><?php echo $oneline_bbs["created"] ?></span></h2>
+                  <h2><a href="#"><?php echo $oneline_bbs["nickname"] ?></a> 
+                  <a href="show.php"><?php echo $oneline_bbs["created"] ?></a></h2>
                   <p><?php echo $oneline_bbs["comment"] ?></p>
                   </div>
                   <?php

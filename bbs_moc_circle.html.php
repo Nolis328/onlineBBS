@@ -157,7 +157,8 @@
                   foreach($survey_line as $oneline_bbs){
                     ?>
                   <div class="timeline-label">
-                  <h2><a href="#"><?php echo $oneline_bbs["nickname"] ?></a> <span><?php echo $oneline_bbs["created"] ?></span></h2>
+                  <h2><a href="#"><?php echo $oneline_bbs["nickname"] ?></a> 
+                  <a href="show.php"><?php echo $oneline_bbs["created"] ?></span></h2>
                   <p><?php echo $oneline_bbs["comment"] ?></p>
                   </div>
                   <?php
