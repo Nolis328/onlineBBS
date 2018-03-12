@@ -1,3 +1,37 @@
+<!-- 送信 -->
+<?php
+  // $nickname = $_POST['nickname'];
+  // $comment = $_POST['comment'];
+if(isset($_POST['nickname'])){
+  // // フォームからPOST送信で受け取った情報をサニタイズし変数へ代入
+  $nickname = htmlspecialchars($_POST['nickname']);
+  $comment = htmlspecialchars($_POST['comment']);
+  // $created = htmlspecialchars($_POST['created']);
+
+  // １．データベースに接続する
+  $dsn = 'mysql:dbname=oneline_bbs;host=localhost';//コロンは「使いますよ」の意味,ローカルホストは自分のサーバーという意味別の場合はIP
+  $user = 'root';
+  $password='';
+  $dbh = new PDO($dsn, $user, $password);
+  $dbh->query('SET NAMES utf8');
+          //dbに何を入れるか？送信情報＋送信識別子＋カラム数
+
+
+  // ２．SQL文を実行する
+  $sql = "INSERT INTO `posts` ( `nickname`, `comment`, `created`) VALUES ( ?, ?, now());";
+    //紫色になっているとエラー 全体をダブルクォートで囲えば解決。変数をぶち込む
+    //SQLインジェクション（不正操作）を防ぐ
+
+
+  //プリペアードステートメント
+  $data=array($nickname,$comment);
+  $stmt = $dbh->prepare($sql);
+  $stmt->execute($data);//$dataを接続してEXECUTE（完成させて実行）
+
+  // ３．データベースを切断する
+  $dbh = null;
+}
+ ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -79,7 +113,7 @@
         <!-- Nori --><a class="teamtag"><b>会社のページ</b></a>
         <br>
 
-        <form action="fordb_bbs.php" method="POST">
+        <form action="bbs_moc.html.php" method="post">
           <!-- nickname -->
           <div class="form-group">
             <div class="input-group">
@@ -104,16 +138,9 @@
         <div class="timeline-centered">
           <article class="timeline-entry">
             <div class="timeline-entry-inner">
-              <div class="timeline-icon bg-success">
-                <i class="entypo-feather"></i>
-                <i class="fas fa-utensils"></i>
-              </div>
-              <div class="timeline-label">
-                <h2><a href="#">のり@平社員</a> <span>2018-03-17 00:00:00</span></h2>
-                <p>Jollibeeいきませんか</p>
-              </div>
 
-              <?php
+
+             <?php
                 // １．データベースに接続する
                   //fetchの動きに注目.上から順にとり、次の項目を取る準備をしてくれる
                               $dsn = 'mysql:dbname=oneline_bbs;host=localhost';
@@ -123,7 +150,7 @@
                               $dbh->query('SET NAMES utf8');
 
                 // ２．SQL文を実行する
-                $sql = 'SELECT * FROM `posts`';//これだけで取れる
+                $sql = 'SELECT * FROM `posts` ORDER BY `created` DESC';//これだけで取れる
                 $stmt = $dbh->prepare($sql);
                 $stmt->execute();
 
@@ -152,9 +179,19 @@
                 // var_dump($survey_line);
                   foreach($survey_line as $oneline_bbs){
                     ?>
+                          <div class="timeline-icon bg-success">
+                            <i class="entypo-feather"></i>
+                            <i class="fas fa-utensils"></i>
+                          </div>
                   <div class="timeline-label">
-                  <h2><a href="#"><?php echo $oneline_bbs["nickname"] ?></a> 
-                      <a href="show.php"><?php echo $oneline_bbs['created']; ?></a></h2>
+                    <h2>
+                      <a href="#"><?php echo $oneline_bbs["nickname"] ?></a>
+                      <form method="post" name="id" action="show.php">
+                        <a href="show.php?id=<?php echo $oneline_bbs['id']; ?>"><?php echo $oneline_bbs['created']; ?></a>
+                      </form>
+
+
+                    </h2>
                   <p><?php echo $oneline_bbs["comment"] ?></p>
                   </div>
                   <?php
@@ -189,4 +226,3 @@
   <script src="assets/js/form.js"></script>
 </body>
 </html>
-
