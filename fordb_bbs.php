@@ -18,7 +18,7 @@
 
 
   // ２．SQL文を実行する
-  $sql = "INSERT INTO `posts` ( `nickname`, `comment`) VALUES ( ?, ?);";
+  $sql = "INSERT INTO `posts` ( `nickname`, `comment`, `created`) VALUES ( ?, ?, now());";
     //紫色になっているとエラー 全体をダブルクォートで囲えば解決。変数をぶち込む
     //SQLインジェクション（不正操作）を防ぐ
 
@@ -138,14 +138,8 @@
         <div class="timeline-centered">
           <article class="timeline-entry">
             <div class="timeline-entry-inner">
-              <div class="timeline-icon bg-success">
-                <i class="entypo-feather"></i>
-                <i class="fas fa-utensils"></i>
-              </div>
-              <div class="timeline-label">
-                <h2><a href="#">のり@平社員</a> <span>2018-03-17 00:00:00</span></h2>
-                <p>Jollibeeいきませんか</p>
-              </div>
+ 
+
 
               <?php
                 // １．データベースに接続する
@@ -157,7 +151,7 @@
                               $dbh->query('SET NAMES utf8');
 
                 // ２．SQL文を実行する
-                $sql = 'SELECT * FROM `posts`';//これだけで取れる
+                $sql = 'SELECT * FROM `posts` ORDER BY `created` DESC';//これだけで取れる
                 $stmt = $dbh->prepare($sql);
                 $stmt->execute();
 
@@ -186,9 +180,20 @@
                 // var_dump($survey_line);
                   foreach($survey_line as $oneline_bbs){
                     ?>
+                          <div class="timeline-icon bg-success">
+                            <i class="entypo-feather"></i>
+                            <i class="fas fa-utensils"></i>
+                          </div>
                   <div class="timeline-label">
-                  <h2><a href="#"><?php echo $oneline_bbs["nickname"] ?></a> 
-                  <a href="show.php"><?php echo $oneline_bbs["created"] ?></a></h2>
+                    <h2>
+                      <a href="#"><?php echo $oneline_bbs["nickname"] ?></a>
+                      <form method="post" name="id" action="show.php">
+                         <input type="hidden" name="user_name" value="<?php echo $oneline_bbs['id']; ?>">
+                        <a href="show.php"><?php echo $oneline_bbs['created']; ?></a>
+                      </form>
+
+
+                    </h2>
                   <p><?php echo $oneline_bbs["comment"] ?></p>
                   </div>
                   <?php
