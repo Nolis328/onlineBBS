@@ -31,7 +31,7 @@ if(isset($_POST['nickname'])){
   // ３．データベースを切断する
   $dbh = null;
 }
- ?>
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -72,20 +72,20 @@ if(isset($_POST['nickname'])){
 
 
       </div>
-        <!-- NORI -->
-                      <div class="dropdown">
-                        <button class="btn btnori btn-default dropdown-toggle reset_style" type="button" data-toggle="dropdown">
-                          <!-- <img class="humimg" src="http://flat-icon-design.com/f/f_health_37/s256_f_health_37_0bg.png" alt="#"> -->
-            <!-- <span class="caret"></span> -->
-                          </button>
-                        <ul class="dropdown-menu newstyledb" role="menu">
-                          <li role="presentation"><a href="./bbs_moc.html.php">会社</a></li>
-                          <li role="presentation"><a href="./bbs_moc_school.html.php">学校</a></li>
-                          <li role="presentation"><a href="./bbs_moc_circle.html.php">サークル</a></li>
-                        </ul>
-                      </div>
+      <!-- NORI -->
+      <div class="dropdown">
+        <button class="btn btnori btn-default dropdown-toggle reset_style" type="button" data-toggle="dropdown">
+          <!-- <img class="humimg" src="http://flat-icon-design.com/f/f_health_37/s256_f_health_37_0bg.png" alt="#"> -->
+          <!-- <span class="caret"></span> -->
+        </button>
+        <ul class="dropdown-menu newstyledb" role="menu">
+          <li role="presentation"><a href="./bbs_moc.html.php">会社</a></li>
+          <li role="presentation"><a href="./bbs_moc_school.html.php">学校</a></li>
+          <li role="presentation"><a href="./bbs_moc_circle.html.php">サークル</a></li>
+        </ul>
+      </div>
 
-        <!-- ENDNORI -->
+      <!-- ENDNORI -->
 
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -143,11 +143,11 @@ if(isset($_POST['nickname'])){
              <?php
                 // １．データベースに接続する
                   //fetchの動きに注目.上から順にとり、次の項目を取る準備をしてくれる
-                              $dsn = 'mysql:dbname=oneline_bbs;host=localhost';
-                              $user = 'root';
-                              $password = '';
-                              $dbh = new PDO($dsn, $user, $password);
-                              $dbh->query('SET NAMES utf8');
+             $dsn = 'mysql:dbname=oneline_bbs;host=localhost';
+             $user = 'root';
+             $password = '';
+             $dbh = new PDO($dsn, $user, $password);
+             $dbh->query('SET NAMES utf8');
 
                 // ２．SQL文を実行する
                 $sql = 'SELECT * FROM `posts` ORDER BY `created` DESC';//これだけで取れる
@@ -179,50 +179,49 @@ if(isset($_POST['nickname'])){
                 // var_dump($survey_line);
                   foreach($survey_line as $oneline_bbs){
                     ?>
-                          <div class="timeline-icon bg-success">
-                            <i class="entypo-feather"></i>
-                            <i class="fas fa-utensils"></i>
-                          </div>
-                  <div class="timeline-label">
-                    <h2>
-                      <a href="#"><?php echo $oneline_bbs["nickname"] ?></a>
-                      <form method="post" name="id" action="show.php">
-                        <a href="show.php?id=<?php echo $oneline_bbs['id']; ?>"><?php echo $oneline_bbs['created']; ?></a>
-                      </form>
+                    <div class="timeline-icon bg-success">
+                      <i class="entypo-feather"></i>
+                      <i class="fas fa-utensils"></i>
+                    </div>
 
-
-                    </h2>
-                  <p><?php echo $oneline_bbs["comment"] ?></p>
-                  </div>
-                  <?php
+                    <div class="timeline-label">
+                      <h5>
+                        <a href="#"><?php echo $oneline_bbs["nickname"] ?></a>
+                        <form method="post" name="id" action="show.php">
+                          <a href="show.php?id=<?php echo $oneline_bbs['id']; ?>"><?php echo $oneline_bbs['created']; ?></a>
+                        </form>
+                      </h5>
+                      <h2><?php echo $oneline_bbs["comment"] ?></h2>
+                    </div>
+                    <?php
                   }?>
 
 
-</div>
-</article>
+                </div>
+              </article>
 
-<article class="timeline-entry begin">
-  <div class="timeline-entry-inner">
-    <div class="timeline-icon" style="-webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg);">
-      <i class="entypo-flight"></i>+
-    </div>
-  </div>
-</article>
-</div>
-</div>
+              <article class="timeline-entry begin">
+                <div class="timeline-entry-inner">
+                  <div class="timeline-icon" style="-webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg);">
+                    <i class="entypo-flight"></i>+
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
 
-</div>
-</div>
-
-
+        </div>
+      </div>
 
 
 
 
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <!-- Include all compiled plugins (below), or include individual files as needed -->
-  <script src="assets/js/bootstrap.js"></script>
-  <script src="assets/js/form.js"></script>
-</body>
-</html>
+
+
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+      <!-- Include all compiled plugins (below), or include individual files as needed -->
+      <script src="assets/js/bootstrap.js"></script>
+      <script src="assets/js/form.js"></script>
+    </body>
+    </html>
