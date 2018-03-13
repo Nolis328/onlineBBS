@@ -3,7 +3,6 @@ function MoveCheck() {
     	return true;
     }
     else {
-        alert("やめました");
         return false;
     }
 }
