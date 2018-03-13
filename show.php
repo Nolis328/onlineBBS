@@ -126,8 +126,8 @@ if (isset($_REQUEST['id'])){
                       </h5>
                       <h2><?php echo $rec["comment"] ?></h2>
                       <hr>
-            <a href="edit.php?feed_id=<?php echo $feed['id']; ?>" class="btn btn-success btn-xs" onclick="window.alert('直すんご？')">編集</a>
-            <a href="delete.php?feed_id=<?php echo $feed['id']; ?>" class="btn btn-danger btn-xs" onclick="window.alert('消すんご？')">削除</a>
+            <a href="edit.php?id=<?php echo $oneline_bbs['id']; ?>" class="btn btn-success btn-xs">編集</a>
+            <a href="delete.php?id=<?php echo $rec['id']; ?>" class="btn btn-danger btn-xs" onclick="return MoveCheck();">削除</a>
 
                     </div>
             </div>
