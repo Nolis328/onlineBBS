@@ -126,8 +126,9 @@ if (isset($_REQUEST['id'])){
                       </h5>
                       <h2><?php echo $rec["comment"] ?></h2>
                       <hr>
-                      <h2>編集</h2>
-                      <h2>削除</h2>
+            <a href="edit.php?feed_id=<?php echo $feed['id']; ?>" class="btn btn-success btn-xs" onclick="window.alert('直すんご？')">編集</a>
+            <a href="delete.php?feed_id=<?php echo $feed['id']; ?>" class="btn btn-danger btn-xs" onclick="window.alert('消すんご？')">削除</a>
+
                     </div>
             </div>
             </article>
@@ -140,5 +141,6 @@ if (isset($_REQUEST['id'])){
       <!-- Include all compiled plugins (below), or include individual files as needed -->
       <script src="assets/js/bootstrap.js"></script>
       <script src="assets/js/form.js"></script>
+      <script src="assets/js/noliss.js"></script>
 </body>
 </html>

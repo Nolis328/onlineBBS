@@ -1,14 +1,19 @@
+
+
 <!-- 送信 -->
 <?php
-  // $nickname = $_POST['nickname'];
-  // $comment = $_POST['comment'];
-if(isset($_POST['nickname'])){
-  // // フォームからPOST送信で受け取った情報をサニタイズし変数へ代入
+//サーバーに情報が入ったかどうかをGeneralに判定する。
+if($_SERVER ['REQUEST_METHOD'] === 'POST'){
+      // $nickname = $_POST['nickname'];
+      // $comment = $_POST['comment'];
+    // if(isset($_POST['nickname'])){上記で無効化。
+// フォームからPOST送信で受け取った情報をサニタイズし変数へ代入
   $nickname = htmlspecialchars($_POST['nickname']);
   $comment = htmlspecialchars($_POST['comment']);
   // $created = htmlspecialchars($_POST['created']);
 
-  // １．データベースに接続する
+
+// １．データベースに接続する
   $dsn = 'mysql:dbname=oneline_bbs;host=localhost';//コロンは「使いますよ」の意味,ローカルホストは自分のサーバーという意味別の場合はIP
   $user = 'root';
   $password='';
@@ -17,20 +22,23 @@ if(isset($_POST['nickname'])){
           //dbに何を入れるか？送信情報＋送信識別子＋カラム数
 
 
-  // ２．SQL文を実行する
+// ２．SQL文を実行する
   $sql = "INSERT INTO `posts` ( `nickname`, `comment`, `created`) VALUES ( ?, ?, now());";
     //紫色になっているとエラー 全体をダブルクォートで囲えば解決。変数をぶち込む
     //SQLインジェクション（不正操作）を防ぐ
 
 
-  //プリペアードステートメント
+//プリペアードステートメント
   $data=array($nickname,$comment);
   $stmt = $dbh->prepare($sql);
   $stmt->execute($data);//$dataを接続してEXECUTE（完成させて実行）
 
-  // ３．データベースを切断する
+// ３．データベースを切断する
   $dbh = null;
+//重複投稿防止処理。
+  header('Location:bbs_moc.html.php', true, 303);
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -223,5 +231,6 @@ if(isset($_POST['nickname'])){
       <!-- Include all compiled plugins (below), or include individual files as needed -->
       <script src="assets/js/bootstrap.js"></script>
       <script src="assets/js/form.js"></script>
+      <script src="assets/js/noliss.js"></script>
     </body>
     </html>
