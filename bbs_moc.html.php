@@ -1,5 +1,3 @@
-
-
 <!-- 送信 -->
 <?php
 //サーバーに情報が入ったかどうかをGeneralに判定する。
@@ -13,13 +11,14 @@ if($_SERVER ['REQUEST_METHOD'] === 'POST'){
   // $created = htmlspecialchars($_POST['created']);
 
 
-// １．データベースに接続する
-  $dsn = 'mysql:dbname=oneline_bbs;host=localhost';//コロンは「使いますよ」の意味,ローカルホストは自分のサーバーという意味別の場合はIP
-  $user = 'root';
-  $password='';
-  $dbh = new PDO($dsn, $user, $password);
-  $dbh->query('SET NAMES utf8');
-          //dbに何を入れるか？送信情報＋送信識別子＋カラム数
+// // １．データベースに接続する
+//   $dsn = 'mysql:dbname=oneline_bbs;host=localhost';//コロンは「使いますよ」の意味,ローカルホストは自分のサーバーという意味別の場合はIP
+//   $user = 'root';
+//   $password='';
+//   $dbh = new PDO($dsn, $user, $password);
+//   $dbh->query('SET NAMES utf8');
+//           //dbに何を入れるか？送信情報＋送信識別子＋カラム数
+ require('dbconnect.php');
 
 
 // ２．SQL文を実行する
@@ -88,8 +87,8 @@ if($_SERVER ['REQUEST_METHOD'] === 'POST'){
         </button>
         <ul class="dropdown-menu newstyledb" role="menu">
           <li role="presentation"><a href="./bbs_moc.html.php">会社</a></li>
-          <li role="presentation"><a href="./bbs_moc_school.html.php">学校</a></li>
-          <li role="presentation"><a href="./bbs_moc_circle.html.php">サークル</a></li>
+<!--           <li role="presentation"><a href="./bbs_moc_school.html.php">学校</a></li>
+          <li role="presentation"><a href="./bbs_moc_circle.html.php">サークル</a></li> -->
         </ul>
       </div>
 
@@ -151,11 +150,7 @@ if($_SERVER ['REQUEST_METHOD'] === 'POST'){
              <?php
                 // １．データベースに接続する
                   //fetchの動きに注目.上から順にとり、次の項目を取る準備をしてくれる
-             $dsn = 'mysql:dbname=oneline_bbs;host=localhost';
-             $user = 'root';
-             $password = '';
-             $dbh = new PDO($dsn, $user, $password);
-             $dbh->query('SET NAMES utf8');
+                require('dbconnect.php');
 
                 // ２．SQL文を実行する
                 $sql = 'SELECT * FROM `posts` ORDER BY `created` DESC';//これだけで取れる

@@ -5,11 +5,7 @@ if (isset($_REQUEST['id'])){
 //ないとバグ、さらにリクエストグローバル関数登場
 
   //DB接続
-  $dsn = 'mysql:dbname=oneline_bbs;host=localhost';//コロンは「使いますよ」の意味,ローカルホストは自分のサーバーという意味別の場合はIP
-  $user = 'root';
-  $password='';
-  $dbh = new PDO($dsn, $user, $password);
-  $dbh->query('SET NAMES utf8');
+ require('dbconnect.php');
           //dbに何を入れるか？送信情報＋送信識別子＋カラム数
 
 
@@ -84,8 +80,8 @@ if (isset($_REQUEST['id'])){
         </button>
         <ul class="dropdown-menu newstyledb" role="menu">
           <li role="presentation"><a href="./bbs_moc.html.php">会社</a></li>
-          <li role="presentation"><a href="./bbs_moc_school.html.php">学校</a></li>
-          <li role="presentation"><a href="./bbs_moc_circle.html.php">サークル</a></li>
+<!--           <li role="presentation"><a href="./bbs_moc_school.html.php">学校</a></li>
+          <li role="presentation"><a href="./bbs_moc_circle.html.php">サークル</a></li> -->
         </ul>
       </div>
 
