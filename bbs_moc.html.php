@@ -1,43 +1,26 @@
-<!-- 送信 -->
 <?php
 //サーバーに情報が入ったかどうかをGeneralに判定する。
-if($_SERVER ['REQUEST_METHOD'] === 'POST'){
-      // $nickname = $_POST['nickname'];
-      // $comment = $_POST['comment'];
-    // if(isset($_POST['nickname'])){上記で無効化。
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
 // フォームからPOST送信で受け取った情報をサニタイズし変数へ代入
   $nickname = htmlspecialchars($_POST['nickname']);
   $comment = htmlspecialchars($_POST['comment']);
-  // $created = htmlspecialchars($_POST['created']);
-
-
-// // １．データベースに接続する
-//   $dsn = 'mysql:dbname=oneline_bbs;host=localhost';//コロンは「使いますよ」の意味,ローカルホストは自分のサーバーという意味別の場合はIP
-//   $user = 'root';
-//   $password='';
-//   $dbh = new PDO($dsn, $user, $password);
-//   $dbh->query('SET NAMES utf8');
-//           //dbに何を入れるか？送信情報＋送信識別子＋カラム数
- require('dbconnect.php');
-
-
+// $created = htmlspecialchars($_POST['created']);
+//DBconnect
+  require('dbconnect.php');
 // ２．SQL文を実行する
   $sql = "INSERT INTO `posts` ( `nickname`, `comment`, `created`) VALUES ( ?, ?, now());";
-    //紫色になっているとエラー 全体をダブルクォートで囲えば解決。変数をぶち込む
-    //SQLインジェクション（不正操作）を防ぐ
-
-
+//紫色になっているとエラー 全体をダブルクォートで囲えば解決。変数をぶち込む
+//SQLインジェクション（不正操作）を防ぐ
 //プリペアードステートメント
   $data=array($nickname,$comment);
   $stmt = $dbh->prepare($sql);
   $stmt->execute($data);//$dataを接続してEXECUTE（完成させて実行）
-
 // ３．データベースを切断する
   $dbh = null;
 //重複投稿防止処理。
-  header('Location:bbs_moc.html.php', true, 303);
+  header('Location: bbs_moc.html.php', true, 303);
+  exit();
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -147,7 +130,7 @@ if($_SERVER ['REQUEST_METHOD'] === 'POST'){
             <div class="timeline-entry-inner">
 
 
-             <?php
+<?php
                 // １．データベースに接続する
                   //fetchの動きに注目.上から順にとり、次の項目を取る準備をしてくれる
                 require('dbconnect.php');
@@ -178,7 +161,7 @@ if($_SERVER ['REQUEST_METHOD'] === 'POST'){
                   ?>
 
 
-                  <?php
+<?php
                 // var_dump($survey_line);
                   foreach($survey_line as $oneline_bbs){
                     ?>
@@ -196,8 +179,8 @@ if($_SERVER ['REQUEST_METHOD'] === 'POST'){
                       </h5>
                       <h2><?php echo $oneline_bbs["comment"] ?></h2>
                     </div>
-                    <?php
-                  }?>
+<?php
+}?>
 
 
                 </div>

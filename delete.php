@@ -21,15 +21,3 @@
     header('Location: bbs_moc.html.php');
     exit();
 ?>
-<!-- JSで戻す -->
-
-<!DOCTYPE html>
-<html>
-<head>
-  <meta meta="charset-utf8">
-  <title></title>
-</head>
-<body>
-  <script>location.href="bbs_moc.html.php";</script>
-</body>
-</html>

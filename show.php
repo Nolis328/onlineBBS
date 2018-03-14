@@ -1,34 +1,22 @@
 <?php
-
 if (isset($_REQUEST['id'])){
   $editid=$_REQUEST['id'];
 //ないとバグ、さらにリクエストグローバル関数登場
-
-  //DB接続
+//DB接続
  require('dbconnect.php');
-          //dbに何を入れるか？送信情報＋送信識別子＋カラム数
-
-
-  // ２．SQL文を実行する
+  //dbに何を入れるか？送信情報＋送信識別子＋カラム数
+  //２．SQL文を実行する
   $sql = 'SELECT * FROM `posts` WHERE `id`='.$editid;
-    //紫色になっているとエラー 全体をダブルクォートで囲えば解決。変数をぶち込む
-    //SQLインジェクション（不正操作）を防ぐ
-
-
+  //紫色になっているとエラー 全体をダブルクォートで囲えば解決。変数をぶち込む
+  //SQLインジェクション（不正操作）を防ぐ
   //プリペアードステートメント
   $stmt = $dbh->prepare($sql);
-  $stmt->execute();//接続してEXECUTE（完成させて実行）
-
-
+  $stmt->execute();
+  //接続してEXECUTE（完成させて実行）
   //データ取得
   $rec=$stmt->fetch(PDO::FETCH_ASSOC);
-
-
   // ３．データベースを切断する
   $dbh = null;
-
-
-
 }?>
 
 
