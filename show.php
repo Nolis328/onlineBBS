@@ -112,6 +112,7 @@ if (isset($_REQUEST['id'])){
                       <hr>
             <a href="edit.php?id=<?php echo $rec['id']; ?>" class="btn btn-success btn-xs">編集</a>
             <a href="delete.php?id=<?php echo $rec['id']; ?>" class="btn btn-danger btn-xs" onclick="return MoveCheck();">削除</a>
+            <a href="bbs_moc.html.php" class="btn btn-primary btn-xs">戻る</a>
 
                     </div>
             </div>

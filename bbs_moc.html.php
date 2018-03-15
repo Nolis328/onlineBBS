@@ -172,7 +172,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
                     <div class="timeline-label">
                       <h5>
-                        <a href="#"><?php echo $oneline_bbs["nickname"] ?></a>
+                        <a href="show.php?id=<?php echo $oneline_bbs['id']; ?>"><?php echo $oneline_bbs["nickname"] ?></a>
                         <form method="post" name="id" action="show.php">
                           <a href="show.php?id=<?php echo $oneline_bbs['id']; ?>"><?php echo $oneline_bbs['created']; ?></a>
                         </form>
