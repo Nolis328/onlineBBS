@@ -18,15 +18,11 @@ if (isset($_REQUEST['id'])){
   // ３．データベースを切断する
   $dbh = null;
 }?>
-
-
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <title>編集ページ</title>
   <meta charset="utf-8">
-    <!-- CSS -->
+  <!-- CSS -->
   <link rel="stylesheet" href="assets/css/bootstrap.css">
   <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/form.css">
@@ -35,29 +31,17 @@ if (isset($_REQUEST['id'])){
   <!-- NoriCSS -->
   <link rel="stylesheet" href="./noliss.css">
 </head>
-<body>
+<body style="margin-top: 60px">
 
 
 
-
-
- <!-- ナビゲーションバー -->
+<!-- ナビゲーションバー -->
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header page-scroll">
 
         <a class="navbar-brand" href="#page-top"><span class="strong-title"><i class="fa fa-coffee"></i>そろそろごはん</span></a>
-
-        <!-- NORI -->
-
-
-
-
-
-
-
-
 
       </div>
       <!-- NORI -->
@@ -68,14 +52,11 @@ if (isset($_REQUEST['id'])){
         </button>
         <ul class="dropdown-menu newstyledb" role="menu">
           <li role="presentation"><a href="./bbs_moc.html.php">会社</a></li>
-<!--           <li role="presentation"><a href="./bbs_moc_school.html.php">学校</a></li>
+      <!--  <li role="presentation"><a href="./bbs_moc_school.html.php">学校</a></li>
           <li role="presentation"><a href="./bbs_moc_circle.html.php">サークル</a></li> -->
         </ul>
       </div>
-
       <!-- ENDNORI -->
-
-
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
@@ -87,44 +68,39 @@ if (isset($_REQUEST['id'])){
   </nav>
 
 
-
+  <div class="container">
+    <div class="row">
+      <!-- ここにコンテンツ -->
     <div id="senkeshi">
       <div class="col-md-6 col-md-offset-3 content-margin-top">
         <div class="timeline-centered senkeshi">
             <article class="timeline-entry">
             <div class="timeline-entry-inner">
-
-
-
                     <div class="timeline-icon bg-success">
                       <i class="entypo-feather"></i>
                       <i class="fas fa-utensils"></i>
                     </div>
 
-
-
-                    <div class="timeline-label">
-                      <h5>
-                        <a><?php echo $rec["nickname"] ?></a>
-                        <a><?php echo $rec['created']; ?></a>
-                      </h5>
-                      <h2><?php echo $rec["comment"] ?></h2>
-                      <hr>
-            <a href="edit.php?id=<?php echo $rec['id']; ?>" class="btn btn-success btn-xs">編集</a>
-            <a href="delete.php?id=<?php echo $rec['id']; ?>" class="btn btn-danger btn-xs" onclick="return MoveCheck();">削除</a>
-
-                    </div>
+      <div class="timeline-label">
+        <form method="POST" action="update.php" class="form-group">
+          <h5>
+            <a><?php echo $rec['nickname']; ?><br></a>
+            <a><?php echo $rec['created']; ?><br></a>
+          </h5>
+          <input type="hidden" name="id" value="<?php echo $rec['id']; ?>">
+          <textarea name="comment" class="form-control"><?php echo $rec['comment']; ?></textarea>
+          <input type="submit" value="更新" class="btn btn-warning btn-xs">
+        </form>
             </div>
-            </article>
+          </article>
         </div>
       </div>
-    </div>
-
-      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-      <!-- Include all compiled plugins (below), or include individual files as needed -->
-      <script src="assets/js/bootstrap.js"></script>
-      <script src="assets/js/form.js"></script>
-      <script src="assets/js/noliss.js"></script>
+     </div>
+   </div>
+ </div>
+  <script src="assets/js/jquery-3.1.1.js"></script>
+  <script src="assets/js/jquery-migrate-1.4.1.js"></script>
+  <script src="assets/js/bootstrap.js"></script>
+  <script src="assets/js/noliss.js"></script>
 </body>
 </html>
