@@ -1,0 +1,133 @@
+/*css
+//==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>
+//
+// Ajaxいいねボタン v1.15 [ GPL ]
+// Copyright (c) phpkobo.com ( http://jpn.phpkobo.com/ )
+// Email : admin@phpkobo.com
+// ID : LKBNX-115J
+//
+//==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<
+*/
+
+.roverlay,
+.rwindow {
+	/* for android 2.3.2 */
+	-webkit-backface-visibility: hidden;
+	-webkit-transform: translate3d(0,0,0);
+}
+/*-- overlay --*/
+.roverlay {
+	display:none;
+	position:fixed;
+	overflow:auto;
+	overflow-x:hidden;
+	overflow-y:auto;
+	margin:0;
+	padding:0;
+	background-color:rgba(0,0,0,0.2);
+}
+/*-- window --*/
+.rwindow {
+	box-sizing:border-box;
+	position:absolute;
+	margin-bottom:10px;
+	padding:0;
+	overflow:hidden;
+	border:10px solid rgba(0,0,0,0.3);
+	border-radius:4px;
+	box-shadow: 5px 5px 15px #444;
+}
+.rwindow-open {
+	animation-duration:0.3s;
+	animation-name:kf-rwindow-open;
+	animation-timing-function:ease;
+	animation-iteration-count:1;
+}
+@keyframes kf-rwindow-open {
+	0% {
+		transform: translateY(-30px);
+		opacity:0;
+	}
+	100% {
+		transform: translateY(0);
+		opacity:1;
+	}
+}
+.rwindow-close {
+	animation-duration:0.3s;
+	animation-name:kf-rwindow-close;
+	animation-timing-function:ease;
+	animation-iteration-count:1;
+}
+@keyframes kf-rwindow-close {
+	100% {
+		transform: translateY(-30px);
+		opacity:0;
+	}
+}
+/*-- dialog --*/
+.dlg {
+	display:none;
+	position:relative;
+}
+.dlg .dlg-heading {
+	position:absolute;
+	top:0;
+	width:100%;
+	height:50px;
+	margin:0;
+	padding:14px;
+	text-align:left;
+	color:white;
+	background-image:
+		linear-gradient(90deg,
+			rgba(255, 255, 255, 0),
+			rgba(255, 255, 255, 0.4)
+		);
+	background-color:#337ab7;
+}
+.dlg .dlg-heading .dlg-title {
+	vertical-align:middle;
+}
+.dlg .dlg-heading .dlg-title .glyphicon {
+	margin-right:5px;
+}
+.dlg .dlg-body {
+	position:absolute;
+	top:50px;
+	width:100%;
+	margin:0;
+	padding:10px;
+	text-align:left;
+	background-color:white;
+}
+.dlg .dlg-footer {
+	position:absolute;
+	bottom:0;
+	width:100%;
+	height:50px;
+	line-height:46px;
+	margin:0;
+	padding:0 10px;
+	text-align:right;
+	color:white;
+	border:1px solid #ccc;
+	border-width:1px 0 0 0;
+	background-image:
+		linear-gradient(90deg,
+			rgba(255, 255, 255, 0),
+			rgba(255, 255, 255, 0.8)
+		);
+	background-color:#ccc;
+}
+.dlg .dlg-footer .btn {
+	width:100px;
+}
+/*-- dlg-rel --*/
+.dlg-rel .dlg-heading,
+.dlg-rel .dlg-body,
+.dlg-rel .dlg-footer {
+	position:relative;
+	top:0;
+}
+

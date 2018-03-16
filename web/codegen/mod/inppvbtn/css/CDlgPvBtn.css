@@ -1,0 +1,44 @@
+/*css
+//==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>
+//
+// Ajaxいいねボタン v1.15 [ GPL ]
+// Copyright (c) phpkobo.com ( http://jpn.phpkobo.com/ )
+// Email : admin@phpkobo.com
+// ID : LKBNX-115J
+//
+//==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<
+*/
+
+.dlgpvbtn .dlgpvbtn-tpllist {
+	overflow:auto;
+	height:300px;
+}
+.dlgpvbtn .dlgpvbtn-tplbox {
+	display:inline-block;
+	margin:2px;
+	vertical-align:top;
+	cursor:pointer;
+}
+.dlgpvbtn .dlgpvbtn-tplbox .dlgpvbtn-tplbox-body {
+	margin:0;
+	padding:0;
+}
+.dlgpvbtn .dlgpvbtn-tplbox .dlgpvbtn-tplbox-body:focus,
+.dlgpvbtn .dlgpvbtn-tplbox .dlgpvbtn-tplbox-body:hover {
+	border-color: #66afe9;
+	outline: 0;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+}
+.dlgpvbtn .dlgpvbtn-tplbox .dlgpvbtn-tplbox-header {
+	margin-bottom:5px;
+}
+.dlgpvbtn .dlgpvbtn-tplbox .dlgpvbtn-tplbox-header div {
+	display:inline-block;
+	padding:2px 5px;
+	font-size:11px;
+	text-align:left;
+	color:white;
+	background-color:#ccc;
+	border-radius:2px;
+}

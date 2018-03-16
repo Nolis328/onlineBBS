@@ -1,0 +1,112 @@
+/*css
+//==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>
+//
+// Ajaxいいねボタン v1.15 [ GPL ]
+// Copyright (c) phpkobo.com ( http://jpn.phpkobo.com/ )
+// Email : admin@phpkobo.com
+// ID : LKBNX-115J
+//
+//==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<
+*/
+
+.main {
+	margin:20px auto 40px auto;
+	background-color:#fff;
+	max-width:800px;
+}
+.title-ctar {
+	margin:30px 10px 40px 10px;
+}
+.title-sub {
+	margin-left:5px;
+	color:#800;
+	font-size:16px;
+	letter-spacing:1em;
+}
+.spage {
+}
+.psect .psect-heading {
+	font-size:110%;
+	border-width:0 0 1px 0;
+}
+.cell-step,
+.cell-title {
+	display:table-cell;
+}
+.cell-step {
+	width:30px;
+}
+.label-step-g,
+.label-step-r,
+.label-step {
+	position: relative;
+	top: 0px;
+	left: -5px;
+	padding:5px 10px;
+	font-size:100%;
+	font-weight:bold;
+	color:white;
+	background-color:#468acf;
+	border-radius:50%;
+}
+.label-step-g {
+	background-color:#46cf8a;
+}
+.label-step-r {
+	background-color:#cf468a;
+	border-radius:4px;
+}
+.btn-gen-iid {
+	position: relative;
+	right: 20px;
+	border-radius: 0 0 6px 6px;
+}
+.status {
+	overflow:hidden;
+	position:relative;
+	padding:10px;
+	margin-bottom:15px;
+	font-size:110%;
+	text-align:center;
+	color:white;
+	background-color:#46cf8a;
+}
+.status .success-msg {
+	position:relative;
+	top:0.2em;
+	animation-name:kf-success-msg;
+	animation-duration:0.5s;
+	animation-timing-function:ease;
+	animation-iteration-count:1;
+}
+@keyframes kf-success-msg {
+	0% {
+		transform:scale(3);
+		color:rgba(255,255,255,0.3);
+	}
+	80% {
+		transform:scale(0.9);
+		color:rgba(255,255,255,0.3);
+		text-shadow:0 0 5px #fff;
+	}
+	90% {
+		transform:scale(1);
+		color:white;
+	}
+}
+.blink {
+	animation-name:kf-blink;
+	animation-duration:1s;
+	animation-timing-function:ease;
+	animation-iteration-count:1;
+}
+@keyframes kf-blink {
+	0% {
+		color:#46cf8a;
+		box-shadow:0 0 50px 0 #46cf8a;
+	}
+	100% {
+		box-shadow:0 0 0 0 #46cf8a;
+	}
+}
+

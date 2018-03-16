@@ -1,0 +1,28 @@
+/*css
+//==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>
+//
+// Ajaxいいねボタン v1.15 [ GPL ]
+// Copyright (c) phpkobo.com ( http://jpn.phpkobo.com/ )
+// Email : admin@phpkobo.com
+// ID : LKBNX-115J
+//
+//==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<
+*/
+.form-group .status-frame {
+	padding:8px;
+	padding-bottom:0;
+	border-width:1px;
+	border-style:solid;
+	border-color:transparent;
+	border-radius:4px;
+}
+.form-group.has-error .status-frame {
+	border-color:#a94442;
+}
+.form-group.has-success .status-frame {
+	border-color:#3c763d;
+}
+.form-group.has-warning .status-frame {
+	border-color:#8a6d3b;
+}
+

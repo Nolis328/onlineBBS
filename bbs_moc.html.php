@@ -36,7 +36,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
   <link rel="stylesheet" href="assets/css/main.css">
   <!-- NoriCSS -->
   <link rel="stylesheet" href="./noliss.css">
-
+  <!-- NoriAjaxいいね  -->
+  <script type="text/javascript" src="/oneline_bbs-master/web/cn/cn.php"></script>
 </head>
 <body>
 
@@ -178,6 +179,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                         </form>
                       </h5>
                       <h2><?php echo $oneline_bbs["comment"] ?></h2>
+                      <div class="ajax-iine" data-iid="noligood.<?php echo $oneline_bbs['id']?> " data-tid="t1004"></div>
                     </div>
 <?php
 }?>

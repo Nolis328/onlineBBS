@@ -1,0 +1,27 @@
+.ajax-iine table,
+.ajax-iine tbody,
+.ajax-iine tfoot,
+.ajax-iine thead,
+.ajax-iine tr,
+.ajax-iine th,
+.ajax-iine td {
+	margin:0;
+	padding:0;
+	border:0;
+	font-size:100%;
+	vertical-align:top;
+	background-color:transparent;
+	box-shadow:none;
+}
+.ajax-iine img {
+	margin:0;
+	padding:0;
+	border:0;
+	background-color:transparent;
+	box-shadow:none;
+}
+.ajax-iine table {
+	border-collapse:collapse;
+	border-spacing:0;
+}
+

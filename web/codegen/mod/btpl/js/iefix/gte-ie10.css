@@ -1,0 +1,18 @@
+/*css
+//==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>
+//
+// Ajaxいいねボタン v1.15 [ GPL ]
+// Copyright (c) phpkobo.com ( http://jpn.phpkobo.com/ )
+// Email : admin@phpkobo.com
+// ID : LKBNX-115J
+//
+//==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<
+*/
+
+/* IE10+ CSS styles */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+	/* fixing the vertical alignment of bootstrap label */
+	.label {
+		padding-bottom: 0;
+	}
+}

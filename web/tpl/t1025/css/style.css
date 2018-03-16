@@ -1,0 +1,25 @@
+%tpl%.aiin-ctar {
+	position:relative;
+	box-sizing:content-box;
+	display:inline-block;
+	font-family:Helvetica, Arial, "hiragino kaku gothic pro",meiryo, "ms pgothic", sans-serif;
+	color:#fff;
+	background:#4267b2;
+	border-radius:5px;
+	cursor:pointer;
+	user-select:none;
+}
+%tpl% .aiin-inner {
+	margin:4px 21px;
+	text-align:center;
+}
+%tpl% .aiin-cy,
+%tpl% .aiin-icon {
+	vertical-align:middle;
+}
+%tpl% .aiin-icon {
+	margin-right:8px;
+}
+%tpl% .aiin-cy {
+	font-size:25px;
+}

@@ -1,0 +1,33 @@
+/*css
+//==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>
+//
+// Ajaxいいねボタン v1.15 [ GPL ]
+// Copyright (c) phpkobo.com ( http://jpn.phpkobo.com/ )
+// Email : admin@phpkobo.com
+// ID : LKBNX-115J
+//
+//==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<
+*/
+
+body > header > nav {
+	height:50px;
+}
+input,
+select {
+	height:auto !important;
+	padding:5px !important;
+}
+.input-group-addon {
+	display:none !important;
+}
+.input-group-btn {
+	display:inline-block;
+	zoom:1;
+	display:inline;
+}
+.form-inline .input-group > .form-control {
+	width:auto !important;
+}
+
+
+

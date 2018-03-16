@@ -6,7 +6,7 @@
     }
     require('dbconnect.php');
     // SQL
-    $sql = 'UPDATE `posts` SET `comment`=?, `created`=NOW() WHERE `id`=?';
+    $sql = 'UPDATE `posts` SET `comment`=?, `created`=NOW() WHERE id=?';
     $data = array($_POST['comment'], $_POST['id']);
     $stmt = $dbh->prepare($sql);
     $stmt->execute($data);

@@ -1,0 +1,185 @@
+/*css
+//==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>
+//
+// Ajaxいいねボタン v1.15 [ GPL ]
+// Copyright (c) phpkobo.com ( http://jpn.phpkobo.com/ )
+// Email : admin@phpkobo.com
+// ID : LKBNX-115J
+//
+//==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<
+*/
+
+body {
+	background-color:#ffffff;
+	padding-top: 0px;
+}
+body > main {
+	min-height:500px;
+}
+@media (min-width:640px) {
+	body > main {
+		border:0px solid #ffffff;
+	}
+}
+body > main .homebtn {
+	display:none;
+	position:static;
+	margin:80px auto 20px auto;
+	width:60px;
+	height:60px;
+
+	border:1px solid transparent;
+	border-left-color:#286090;
+	border-right-color:#286090;
+
+	font-size:30px;
+	line-height:60px;
+	text-align:center;
+	cursor:pointer;
+
+	opacity:0.2;
+	/*ie7*/
+	*zoom:1;
+	*filter: alpha(opacity=20);
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+}
+@media (min-width:640px) {
+	body > main .homebtn {
+		position:fixed;
+		bottom:100px;
+		right:100px;
+	}
+	body > main .homebtn:hover {
+		opacity:1.0;
+		border-color:transparent;
+		border-top-color:#286090;
+		border-bottom-color:#286090;
+	}
+}
+body > main .homebtn span {
+	color:#265AC5;
+}
+body > header {
+	padding:40px;
+	color:white;
+
+	/* for webkit browsers */
+	background: -webkit-gradient(linear, left top, left bottom, from(#265AC5), to(#ffffff)); 
+	/* for firefox 3.6+ */
+	background: -moz-linear-gradient(top, #265AC5, #ffffff); 
+	/* for IE */
+	background: -ms-linear-gradient(top, #265AC5, #ffffff);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#265AC5', endColorstr='#ffffff'); 
+	/* for opera */
+	background-image: -o-linear-gradient(-90deg, #265AC5, #ffffff);
+	/* catch all */
+	background-color:#265AC5;
+}
+body > header > .title {
+	font-size:30px;
+	font-weight:normal;
+}
+body > footer {
+	background-color:#286090;
+	text-align:center;
+}
+body > footer .site-name-container {
+	display:inline-block;
+	*zoom:1;
+	*display:inline;
+	margin:5px 0;
+}
+body > footer .site-name {
+	font-family:"Arial Black","Arial";
+	font-size:14px;
+	font-weight:normal;
+	color:#eee;
+}
+.instruction {
+	margin:20px 0px;
+	font-size:140%;
+}
+.btn-start {
+	max-width:320px;
+	width:100%;
+	padding:40px 0;
+	font-size:120%;
+}
+@media (min-width:640px) {
+	main .instruction {
+		margin:40px 20px;
+	}
+	main .btn-start {
+		padding:80px 0;
+	}
+}
+/* psect-done */
+.psect-done {
+	margin:30px auto 30px auto;
+	max-width:800px;
+}
+.psect-done .inst-done {
+	margin:15px 0 25px 0;
+	text-align:center;
+	font-size:160%;
+	font-weight:bold;
+	color:#000;
+}
+.psect-done .important-box {
+	margin:0 10px;
+	padding:10px;
+	color:#800000;
+	text-align:center;
+	background-color:#fee;
+	border:1px solid #fcc;
+	border-radius: 3px;
+}
+.psect-done .important {
+	margin:0 10px 10px 0;
+	padding:0 15px;
+	font-size:80%;
+	line-height:160%;
+	font-weight:bold;
+	color:white;
+	background-color:red;
+	border-radius: 6px;
+}
+.psect-done .login-info-box {
+	margin:20px auto;
+	padding:20px;
+	width: 300px;
+	text-align:center;
+
+	border:1px solid #ccf;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	-khtml-border-radius: 6px;
+	border-radius: 6px;
+}
+.psect-done .key {
+	width:150px;
+	font-size:90%;
+	color:#888;
+	text-align:right;
+}
+.psect-done .val {
+	padding-left:5px;
+	width:150px;
+	font-size:110%;
+	font-style:italic;
+	font-weight:bold;
+	text-align:left;
+	color:#333;
+}
+.psect-done .link-box {
+	margin:0 auto;
+	width:200px;
+	padding:4px 0;
+	border:1px solid #e0e0ff;
+	border-width: 0 0 5px 0;
+}
+.psect-done .link {
+	font-size:110%;
+	color:#44f;
+	text-decoration:none;
+}

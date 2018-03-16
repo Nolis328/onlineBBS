@@ -1,0 +1,58 @@
+/*css
+//==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>
+//
+// Ajaxいいねボタン v1.15 [ GPL ]
+// Copyright (c) phpkobo.com ( http://jpn.phpkobo.com/ )
+// Email : admin@phpkobo.com
+// ID : LKBNX-115J
+//
+//==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<
+*/
+.scrollbtn-cont {
+	display:none;
+	position:fixed;
+	bottom:15px;
+	right:5px;
+	width:40px;
+	background-color:black;
+	border-radius:5px;
+	z-index:999999;
+	opacity:0.2;
+	/*ie7*/
+	*zoom:1;
+	*filter: alpha(opacity=20);
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+}
+.scrollbtn-cont:hover {
+	opacity:0.4;
+}
+@media all and (max-width: 700px) {
+	.scrollbtn-cont {
+		display:none;
+	}
+}
+.scrollbtn-btn {
+	width:40px;
+	color:white;
+	font-size:30px;
+	line-height:32px;
+	text-align:center;
+	cursor:pointer;
+	/* ie7 */
+	*padding-top:10px;
+}
+.scrollbtn-btn.scrollbtn-gotop {
+	padding-top:4px;
+}
+.scrollbtn-btn.scrollbtn-gobottom {
+	padding-bottom:4px;
+}
+.scrollbtn-btn span {
+	vertical-align:top;
+}
+.scrollbtn-btn:hover {
+	color:#0f0;
+}
+.scrollbtn-btn:active {
+	color:#f00;
+}

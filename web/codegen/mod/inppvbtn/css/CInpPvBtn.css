@@ -1,0 +1,57 @@
+/*css
+//==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>
+//
+// Ajaxいいねボタン v1.15 [ GPL ]
+// Copyright (c) phpkobo.com ( http://jpn.phpkobo.com/ )
+// Email : admin@phpkobo.com
+// ID : LKBNX-115J
+//
+//==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<
+*/
+
+.inppvbtn {
+	display:none;
+}
+.inppvbtn-preview {
+	position:relative;
+	margin-bottom:10px;
+	padding:10px;
+	min-height:40px;
+	cursor:pointer;
+
+	/* checkerboard */
+	background-color:white;
+	background-image:linear-gradient(45deg, #eee 25%, transparent 25%, transparent 75%, #eee 75%, #eee),
+		linear-gradient(45deg, #eee 25%, transparent 25%, transparent 75%, #eee 75%, #eee);
+	background-size:16px 16px;
+	background-position:0 0, 8px 8px;
+}
+.inppvbtn-preview-flash {
+	animation-name:kf-inppvbtn-preview-flash;
+	animation-duration:1s;
+	animation-timing-function:ease;
+	animation-iteration-count:1;
+}
+@keyframes kf-inppvbtn-preview-flash {
+	0% {
+		color:#46cf8a;
+		box-shadow:0 0 50px 0 #46cf8a;
+	}
+	100% {
+		box-shadow:0 0 0 0 #46cf8a;
+	}
+}
+.inppvbtn-preview-inner {
+	text-align:center;
+}
+.inppvbtn-tid {
+	position:absolute;
+	bottom:0;
+	left:0;
+	padding:0 10px;
+	font-size:11px;
+	color:white;
+	background-color:#ccc;
+	border-radius:0 3px 0 0;
+}
+

@@ -1,0 +1,37 @@
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_poll`
+--
+
+CREATE TABLE `tbl_poll` (
+  `poll_id` int(11) NOT NULL AUTO_INCREMENT,
+  `dt_create` datetime NOT NULL,
+  `pkey` varchar(300) DEFAULT NULL,
+  `cy` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`poll_id`),
+  KEY `pkey` (`pkey`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1001 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_vote`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_vote` (
+  `vote_id` int(11) NOT NULL AUTO_INCREMENT,
+  `dt_create` datetime NOT NULL,
+  `poll_id` int(11) NOT NULL,
+  `extsig` varchar(100) DEFAULT NULL,
+  `ipsig` varchar(100) DEFAULT NULL,
+  `cksig` varchar(100) DEFAULT NULL,
+  `ans` text DEFAULT NULL,
+  PRIMARY KEY (`vote_id`),
+  KEY `dt_create` (`dt_create`),
+  KEY `poll_id` (`poll_id`),
+  KEY `extsig` (`extsig`),
+  KEY `ipsig` (`ipsig`),
+  KEY `cksig` (`cksig`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1001 ;
+

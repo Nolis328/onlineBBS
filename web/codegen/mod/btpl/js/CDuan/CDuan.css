@@ -1,0 +1,119 @@
+/*css
+//==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>==>>>
+//
+// Ajaxいいねボタン v1.15 [ GPL ]
+// Copyright (c) phpkobo.com ( http://jpn.phpkobo.com/ )
+// Email : admin@phpkobo.com
+// ID : LKBNX-115J
+//
+//==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<==<<<
+*/
+/*-- global font-family --*/
+body,
+input,
+select,
+textarea,
+button,
+.app-ff-bold {
+	font-family:'Lucida Grande','Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+}
+.app-ff-bold {
+	font-weight:bold;
+}
+
+/*-- general --*/
+h2 {
+	margin:0;
+	font-size:150%;
+}
+h3 {
+	margin:0;
+	font-size:100%;
+}
+form {
+	margin:0;
+	padding:0;
+}
+label.pointer {
+	cursor:pointer;
+}
+html {
+    overflow-y:scroll;
+}
+/*-- bootstrap extra --*/
+.glyphicon-margin-right {
+	margin-right:5px;
+}
+.round-top {
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+/*-- bootstrap fix : modal dialog shifts page --*/
+.modal-open {
+	overflow: auto;
+	padding-right: 0px !important;
+}
+/*-- bootstrap fix : menu color --*/
+.navbar-brand:link,
+.navbar-brand:visited,
+.navbar-nav>li a:link,
+.navbar-nav>li a:visited {
+	color:#ddd;
+}
+/*-- body --*/
+body {
+	font-size:16px;
+	padding-top: 50px;
+}
+/*-- body > header --*/
+body > header {
+	margin:0;
+	padding:0;
+}
+body > header > nav {
+}
+@media (min-width:640px) {
+	body > header > .navbar {
+		-moz-box-shadow:    0px 0px 10px 0px #000;
+		-webkit-box-shadow: 0px 0px 10px 0px #000;
+		box-shadow:         0px 0px 10px 0px #000;
+	}
+}
+/*-- body > main --*/
+body > main h1.page-title {
+	margin:10px 0 20px 0;
+	padding:0;
+	font-size:34px;
+	color:#468acf;
+}
+body > main article.generic {
+	margin:50px 0 0 0;
+}
+body > main h2.article-title {
+	margin-bottom:20px;
+	padding:5px 0 5px 10px;
+	font-size:26px;
+	font-weight:bold;
+	color:#468acf;
+	border:0 solid #ddd;
+	border-width:0 0 1px 8px;
+}
+/* duan */
+.duan-blink {
+	animation-name:kf-duan-blink;
+	animation-duration:0.3s;
+	animation-timing-function:ease;
+	animation-iteration-count:2;
+}
+@keyframes kf-duan-blink {
+	0% {
+		opacity:1;
+	}
+	50% {
+		opacity:0.2;
+	}
+	100% {
+		opacity:1;
+	}
+}
+
