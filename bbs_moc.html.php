@@ -163,6 +163,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 
 <?php
+                //URLを識別、アンカーリンクはめ込み処理関数
+                  require('norifunc.php');
                 // var_dump($survey_line);
                   foreach($survey_line as $oneline_bbs){
                     ?>
@@ -178,7 +180,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                           <a href="show.php?id=<?php echo $oneline_bbs['id']; ?>"><?php echo $oneline_bbs['created']; ?></a>
                         </form>
                       </h5>
-                      <h2><?php echo $oneline_bbs["comment"] ?></h2>
+                      <h2><?php echo autoLinker($oneline_bbs['comment']) ?></h2>
                       <div class="ajax-iine" data-iid="noligood.<?php echo $oneline_bbs['id']?> " data-tid="t1004"></div>
                     </div>
 <?php

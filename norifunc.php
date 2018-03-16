@@ -1,5 +1,4 @@
 <?php
-    // $str にURLが含まれていたらリンク
     function autoLinker($str)
     {
         $pat_sub = preg_quote('-._~%:/?#[]@!$&\'()*+,;=', '/'); // 正規表現向けのエスケープ処理
